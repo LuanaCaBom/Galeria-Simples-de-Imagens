@@ -18,35 +18,36 @@ export default function GaleriaScreen({ navigation }: any) {
         require('../../assets/constelacoes/virgem.jpg')
     ]
 
-
-    const [imagem, setImagem] = useState("");
-    const [senha, setSenha] = useState("");
-    const [texto, setTexto] = useState("");
-
-   
+    function mudar(img: any) {
+        navigation.navigate('pag-vizualizacao', {id: img})
+    }
 
     return (
-            <View style={{flex: 1, justifyContent: 'center', backgroundColor: 'black'}}>
+            <View style={{flex: 1, paddingTop: 100, backgroundColor: 'black'}}>
                 <View  style={{alignItems:'center'}}>
 
                     <Text style={{color: 'white', fontSize: 25, fontWeight: 'bold', paddingBottom: 30}}>Seja bem-vindo(a) !!!</Text>
                     
-                    <Text style={{color: 'white', fontSize: 15, paddingBottom: 10}}>Deslize as imagens para ver mais</Text>
+                    <Text style={{color: 'white', fontSize: 15, paddingBottom: 10}}>Deslize as imagens para ver mais.</Text>
                     
                     <ScrollView horizontal>
                         
                             {galeria.map((imagem) => (
-                                    <Image 
-                                        style={{ width: 200, height: 200, margin: 5, borderWidth: 2, borderColor: 'white'}}
-                                        source={imagem}
+                                    <Pressable
+                                        onPress={() => mudar(imagem)}
+                                    >
+                                        <Image 
+                                            style={{ width: 200, height: 200, margin: 5, borderWidth: 2, borderColor: 'white'}}
+                                            source={imagem}
 
-                                    />
+                                        />
+                                    </Pressable>
                                 )
                             )}
 
                     </ScrollView>
 
-                    <Text style={{color: 'white', fontSize: 15, paddingBottom: 10}}>clique em alguma para vê-la em tela cheia</Text>
+                    <Text style={{color: 'white', fontSize: 15, paddingBottom: 10}}>Clique em alguma para vê-la em tela cheia.</Text>
                 </View>
             </View>
     )

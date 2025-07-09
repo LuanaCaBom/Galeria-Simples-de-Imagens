@@ -17,12 +17,17 @@ export default function StackRoutes(){
                 <Screen 
                     name='pag-galeria'
                     component={Galeria}
-                    options={{title: 'Galeria de Imagens Simples'}}
+                    options={{
+                        title: 'Galeria de Imagens Simples', 
+                        headerTintColor: '#0e00d6'
+                    }}
                 />
                 <Screen
                     name='pag-vizualizacao'
                     component={Visualizador}
-                    options={{title: 'Imagem Ampliada'}}
+                    options={{
+                        headerShown: false
+                    }}
                 />
 
             </Navigator>
